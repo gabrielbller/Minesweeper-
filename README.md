@@ -16,7 +16,9 @@ mine, one of two things can happen:
 The game is won when all the squares that have no mines are revealed.
 
 GAME PROGRAMMING REQUIREMENTS:
+
 Before the game starts:
+
 1º The number of lines, columns and the number of mines in the game (constant) must be defined in the code. The logic
 should work even with changing values for a new run
 It must be ensured that the map has at least two pumps and a number of rows and columns
