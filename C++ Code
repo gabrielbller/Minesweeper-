@@ -1,0 +1,100 @@
+//Project using C++ in CodeBlocks
+
+#include #include <locale.h> #include <stdlib.h> //Biblioteca para gerar numeros aleatorios #include <time.h> //Biblioteca para gerar numeros aleatorios #include <windows.h> using namespace std;
+
+#define L 3 //Numero de linhas #define C 3 //Numero de colunas #define B 2 //Numero de bombas
+
+int main() { setlocale(LC_ALL, "Portuguese"); srand((unsigned)time(NULL) );
+
+///Criação e preenchimento padrao do mapa, será diferente no jogo final
+int mapa[L][C]= {0};
+int mapa3[L][C]= {0};
+
+int px, py; ///Coordenadas das bombas
+int tx, ty; ///Coordenadas da tentativa
+
+int i,j,calc=0,tentativa=0, o;
+
+///Laço for para colocar as bombas no mapa
+for (o = 0; o < B; o++){
+    ///Laço Do ~ While para colocar as bombas em posições livre
+    do {
+        px = rand()%L; // 0,1,2
+        py = rand()%C;
+    } while (mapa[px][py] == 9);
+    mapa[px][py] = 9;  ///insere-se uma bomba na posição válida
+
+    cout<<px<<py;
+
+    ///inserindo legenda nas vizinhanças da bomba
+    for (i = -1; i < 2; i++){
+        for (j = -1; j < 2; j++){
+            if (px + i >= 0 and py + j >= 0){
+                if (mapa[px+i][py+j] != 9){
+                    mapa[px+i][py+j] = mapa[px+i][py+j]+1;
+                }
+            }
+        }
+    }
+}
+
+while (calc==0){
+
+system("cls");
+
+//mostrar a matriz zerada
+cout<<0<<" | ";
+for (i=0; i<L; i++){
+    cout<<i<<" | ";
+}
+cout<<endl;
+for (i=0; i<L; i++){
+    cout<<i<<" | ";
+    for (j=0; j<C; j++){
+        cout<<mapa3[i][j]<<" | ";
+    }
+    cout<<endl;
+}
+//Pedindo a linha que o jogador quer usar
+do {cout<<"\nInforme uma linha: ";
+    cin>>tx;
+} while (tx>L-1 or tx<0);
+
+//Pedindo a coluna que o jogador quer usar
+do {cout<<"Informe uma coluna: ";
+    cin>>ty;
+} while (ty>C-1 or ty<0);
+
+mapa3[tx][ty]=mapa[tx][ty];
+
+if (mapa3[tx][ty]==9){
+    system("cls");
+    cout<<"\nVocê perdeu!!";
+    cout<<"\nCampo completo: ";
+    cout<<endl;
+    cout<<endl;
+    cout<<0<<" | ";
+        for (i=0; i<L; i++){
+            cout<<i<<" | ";
+}
+    cout<<endl;
+        for (i=0; i<L; i++){
+            cout<<i<<" | ";
+            for (j=0; j<C; j++){
+                cout<<mapa[i][j]<<" | ";
+    }
+            cout<<endl;
+}
+
+    cout<<"\n\nSuas tentativas: "<<tentativa;
+    calc++;
+}
+tentativa++;
+
+if (tentativa==L*C-B){
+        cout<<"\nVocê Ganhou!!";
+        cout<<"\n\nSuas tentativas: "<<tentativa;
+        calc++;
+}
+}
+return 0; }
