@@ -32,6 +32,7 @@ position that there is already another pump.
 adjacent positions, this will ensure that the map indicates the number of nearby mines correctly.
 
 Now we can start the game:
+
 4º Before each move, the map must be displayed, only with all the positions already revealed by the player.
 
 5º The game must ensure that the player chooses a valid coordinate. It is recommended that these coordinates are
