@@ -1,10 +1,20 @@
 //Project using C++ in CodeBlocks
 
-#include #include <locale.h> #include <stdlib.h> //Biblioteca para gerar numeros aleatorios #include <time.h> //Biblioteca para gerar numeros aleatorios #include <windows.h> using namespace std;
+#include <iostream>
+#include <locale.h> 
+#include <stdlib.h> //Biblioteca para gerar numeros aleatorios 
+#include <time.h> //Biblioteca para gerar numeros aleatorios 
+#include <windows.h> 
 
-#define L 3 //Numero de linhas #define C 3 //Numero de colunas #define B 2 //Numero de bombas
+using namespace std;
 
-int main() { setlocale(LC_ALL, "Portuguese"); srand((unsigned)time(NULL) );
+#define L 3 //Numero de linhas 
+#define C 3 //Numero de colunas 
+#define B 2 //Numero de bombas
+
+int main() { 
+setlocale(LC_ALL, "Portuguese"); 
+srand((unsigned)time(NULL) );
 
 ///Criação e preenchimento padrao do mapa, será diferente no jogo final
 int mapa[L][C]= {0};
