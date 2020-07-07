@@ -2,12 +2,14 @@
 Project made for a work in university
 
 Description:
+
 Minesweeper is a popular single player computer game. It was invented by Phil Spencer
 in 1989 and aims to reveal a minefield without any being detonated. This game has
 rewritten for the most diverse platforms, the most popular version being the one that came
 natively in editions prior to Windows 10.
 
 GAME RULES:
+
 The playing area consists of a rectangular square field. Each square can be revealed by clicking on
 him, and if the clicked square contains a mine, then the game is over. If, on the other hand, the square does not contain a
 mine, one of two things can happen:
